@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Budget Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #faf8f6, #f0e6e0);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .signup-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(62, 39, 35, 0.2);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .signup-header {
+            background: linear-gradient(135deg, #6D4C41 0%, #5D4037 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .signup-header h1 {
+            font-size: 2em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .signup-header p {
+            font-size: 0.95em;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        .signup-form {
+            padding: 40px 30px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #3E2723;
+            font-weight: 500;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #D7CCC8;
+            border-radius: 8px;
+            font-size: 1em;
+            background: white;
+            transition: all 0.3s;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #6D4C41;
+            box-shadow: 0 0 0 3px rgba(109, 76, 65, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            cursor: pointer;
+            accent-color: #6D4C41;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-size: 0.9em;
+            color: #4E342E;
+            cursor: pointer;
+        }
+
+        .checkbox-group a {
+            color: #6D4C41;
+            text-decoration: none;
+        }
+
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #6D4C41 0%, #5D4037 100%);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .signup-btn:hover {
+            background: linear-gradient(135deg, #5D4037 0%, #4E342E 100%);
+            box-shadow: 0 5px 15px rgba(93, 64, 55, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .signup-btn:active {
+            transform: translateY(0);
+        }
+
+        .signup-btn:disabled {
+            background: #BCAAA4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background: #D7CCC8;
+        }
+
+        .divider span {
+            background: #F5F1E8;
+            padding: 0 15px;
+            color: #6D4C41;
+            position: relative;
+            font-size: 0.9em;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: #6D4C41;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .login-link a:hover {
+            color: #5D4037;
+            text-decoration: underline;
+        }
+
+        .success-message {
+            background: #E8F5E9;
+            border: 2px solid #4CAF50;
+            color: #1B5E20;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            display: none;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.5s;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .signup-header h1 {
+                font-size: 1.6em;
+            }
+
+            .signup-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-header">
+            <h1>CREATE ACCOUNT</h1>
+            <p>Join Budget Tracker today</p>
+        </div>
+
+        <div class="signup-form">
+            <div class="success-message" id="success-message">
+                ✓ Account created successfully! Redirecting to login...
+            </div>
+
+            <form id="signup-form" onsubmit="handleSignup(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstname">First Name</label>
+                        <input type="text" id="firstname" name="firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname" name="lastname" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required minlength="6">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required minlength="6">
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+
+                <button type="submit" class="signup-btn" id="signup-btn">CREATE ACCOUNT</button>
+            </form>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <div class="login-link">
+                Already have an account? <a href= /login >Sign in</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleSignup(event) {
+            event.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Show success message
+            const successMessage = document.getElementById('success-message');
+            successMessage.classList.add('show');
+
+            // Disable submit button
+            const submitBtn = document.getElementById('signup-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'REDIRECTING...';
+
+            // Redirect to login page after 2 seconds
+            setTimeout(() => {
+                window.location.href = "/login";
+            }, 2000);
+            }
+
+        // Real-time password matching validation
+        document.getElementById('confirm-password').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+            
+            if (confirmPassword && password !== confirmPassword) {
+                this.style.borderColor = '#FF5722';
+            } else {
+                this.style.borderColor = '#D7CCC8';
+            }
+        });
+    </script>
+</body>
+</html>

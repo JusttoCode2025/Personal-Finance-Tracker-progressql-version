@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <title>Budget Tracker</title>
+</head>
+<body>
+   <nav class="navbar">
+    <div class="nav-right">
+        <a href="/login">Sign Out</a>
+    </div>
+</nav>
+    <div class="container">
+        <div class="header">
+            <h1>BUDGET TRACKER</h1>
+        </div>
+
+        <!-- Bar Progress Tracker -->
+    <div class="section goal-status-card">
+    <div class="goal-header">
+        <h2>TRAVEL GOAL STATUS</h2>
+
+        <div class="goal-numbers">
+            <div>
+                <span>Saved</span>
+                <strong id="homeGoalSaved">$0</strong>
+            </div>
+            <div>
+                <span>Left</span>
+                <strong id="homeGoalLeft">$0</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="goal-bar-wrapper">
+        <div class="goal-bar-fill" id="homeTravelProgress">
+            <span class="goal-percent" id="homeTravelPercent">0%</span>
+        </div>
+        <span class="goal-remaining-text" id="homeGoalRemainingText">$0 left</span>
+    </div>
+
+</div>
+<!-- Summary Cards (Clickable) -->
+<div class="summary">
+
+    <div class="summary-card income" onclick="window.location.href='/budget'">
+        <div class="summary-overlay">
+            <div class="summary-label">BUDGET</div>
+        </div>
+    </div>
+
+    <div class="summary-card expenses" onclick="window.location.href='/dashboard'">
+        <div class="summary-overlay">
+            <div class="summary-label">DASHBOARD</div>
+        </div>
+    </div>
+
+    <div class="summary-card remaining" onclick="window.location.href='/travel-goal'">
+        <div class="summary-overlay">
+            <div class="summary-label">TRAVEL GOAL</div>
+        </div>
+    </div>
+
+    <div class="summary-card travel" onclick="window.location.href='/about'">
+        <div class="summary-overlay">
+            <div class="summary-label">ABOUT</div>
+        </div>
+    </div>
+
+</div>
+        
+
+    <script>
+        // Functions for when cards are clicked
+        // Change these URLs to wherever you want each card to link to
+        
+        function goToIncome() {
+            // Change this to your income page URL
+            window.location.href = '/dashboard';
+            // Or if all on one page: window.location.href = '#income-section';
+        }
+
+        function goToExpenses() {
+            // Change this to your expenses page URL
+            window.location.href = '/budget';
+        }
+
+        function goToRemaining() {
+            // Change this to your remaining/available funds page URL
+            window.location.href = '/about';
+        }
+
+        function goToTravel() {
+            // Change this to your travel fund page URL
+            window.location.href = '/travel-goal';
+        }
+
+
+    </script>
+</body>
+</html>

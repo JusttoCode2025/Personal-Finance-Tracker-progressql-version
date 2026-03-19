@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About & Contact - Budget Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
+</head>
+<body>
+  <header class="navbar">
+      <div class="nav-left">
+      <a href="/home" class="nav-logo">Budget Tracker</a>
+      <a href="/home">Home</a>
+      <a href="/budget">Budget Tracker</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/travel-goal">Travel Goal</a>
+      <a href="/about" class="active">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="/login" class="btn-login">Login / Sign Up</a>
+    </div>
+  
+  </header>
+
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="text-column">
+        <div class="login-header">
+          <header>Budget Tracker</header>
+        </div>
+
+        <p class="about-text highlight">Budget Better.</p>
+        <p class="about-text">We're building tools to help you take control of your financial future. Simple, transparent, and focused on what matters most to you.</p>
+
+        <p class="about-text highlight">Our Mission</p>
+        <p class="about-text">Founded by a group of developers who were tired of bloated, expensive financial apps. We believe that financial literacy should be accessible to everyone, and that starts with having the right tools.</p>
+
+        <p class="about-text highlight">100% Open Source</p>
+        <p class="about-text highlight">0% Ad Supported</p>
+
+        <p class="about-text highlight">Need immediate help?</p>
+        <p class="about-text">Our support team is available 24/7 for urgent financial inquiries.<br><strong>Toll Free:</strong> 1800-BUDGET</p>
+
+        <div class="sign-up-link">
+          <p>Connect with us:</p>
+          <p>
+            <a href="#" target="_blank" class="icon-link">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 0.5C5.37 0.5 0 5.87 0 12.5C0 17.84 3.44 22.32 8.21 23.82C8.82 23.92 9.05 23.54 9.05 23.2C9.05 22.88 9.04 22.06 9.04 21.18C5.67 21.91 4.97 19.97 4.97 19.97C4.42 18.57 3.63 18.21 3.63 18.21C2.54 17.48 3.7 17.5 3.7 17.5C4.9 17.58 5.54 18.74 5.54 18.74C6.62 20.5 8.36 19.95 9.05 19.63C9.15 18.88 9.45 18.39 9.78 18.09C7.13 17.79 4.34 16.74 4.34 11.88C4.34 10.53 4.79 9.45 5.54 8.64C5.43 8.34 5.06 7.06 5.65 5.34C5.65 5.34 6.61 5 9.03 6.62C9.93 6.37 10.9 6.24 11.87 6.24C12.84 6.24 13.81 6.37 14.71 6.62C17.12 5 18.08 5.34 18.08 5.34C18.67 7.06 18.3 8.34 18.19 8.64C18.94 9.45 19.39 10.53 19.39 11.88C19.39 16.75 16.59 17.78 13.94 18.08C14.38 18.45 14.78 19.15 14.78 20.23C14.78 21.76 14.77 22.83 14.77 23.2C14.77 23.55 15 23.93 15.62 23.82C20.39 22.32 23.83 17.84 23.83 12.5C23.83 5.87 18.46 0.5 11.83 0.5H12Z"/>
+              </svg>
+              GitHub
+            </a> | 
+            <a href="#" target="_blank" class="icon-link">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4.36a9.12 9.12 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.88 0c-2.48 0-4.5 2.03-4.5 4.53 0 .35.03.69.1 1.02A12.9 12.9 0 0 1 1.64.89a4.52 4.52 0 0 0-.61 2.28c0 1.57.8 2.95 2.02 3.77A4.48 4.48 0 0 1 .8 6.1v.06c0 2.2 1.57 4.04 3.65 4.46a4.53 4.53 0 0 1-2.04.08c.57 1.78 2.22 3.08 4.18 3.12A9.07 9.07 0 0 1 0 19.54a12.81 12.81 0 0 0 6.92 2.03c8.3 0 12.85-6.88 12.85-12.85 0-.2 0-.39-.01-.58A9.22 9.22 0 0 0 23 3z"/>
+              </svg>
+              Twitter
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="form-column">
+        <p class="about-text highlight">Get in Touch</p>
+        <p class="about-text">Have questions or suggestions? We'd love to hear from you.</p>
+
+        <form class="input-box" id="contactForm">
+          <input class="input-field" type="text" name="name" placeholder="Name" required>
+          <input class="input-field" type="email" name="email" placeholder="Email" required>
+          <input class="input-field" type="text" name="subject" placeholder="Subject" required>
+          <textarea class="input-field" name="message" placeholder="Message" required></textarea>
+
+          <div class="input-submit">
+            <button class="submit-btn" type="submit">Send Message</button>
+          </div>
+
+          <p id="successMessage" class="success-message">Message Sent!</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+    successMessage.style.display = 'none';
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      successMessage.style.display = 'block';
+      form.reset();
+      setTimeout(() => { successMessage.style.display = 'none'; }, 4000);
+    });
+  </script>
+</body>
+</html>
